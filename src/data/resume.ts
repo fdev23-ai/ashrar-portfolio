@@ -6,7 +6,7 @@ export const profile = {
   phone: '+971 54 548 2933',
   email: 'asraraha0@gmail.com',
   linkedin: 'https://linkedin.com/in/asrar-ahmed-5ba36a18a',
-  github: 'https://github.com/asrarahmed', // update to your actual GitHub username
+  github: 'https://github.com/fdev23-ai',
   about:
     'Software developer with a Flutter-first background and growing React expertise, currently building a real-time surveillance and monitoring platform for Web and iOS. Comfortable across the stack — from live video streaming and PTZ camera control to translating Figma designs into pixel-accurate, responsive UI. Shipped apps to both the App Store and Play Store, and enjoys solving problems where real-time data, maps, and performance intersect.',
 }
