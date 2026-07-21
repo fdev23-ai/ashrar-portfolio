@@ -7,8 +7,6 @@ export const profile = {
   email: 'asraraha0@gmail.com',
   linkedin: 'https://linkedin.com/in/asrar-ahmed-5ba36a18a',
   github: 'https://github.com/asrarahmed', // update to your actual GitHub username
-  tagline:
-    'I build real-time, cross-platform apps — from RTSP camera streams and WebRTC video to interactive maps — using Flutter and React.',
   about:
     'Software developer with a Flutter-first background and growing React expertise, currently building a real-time surveillance and monitoring platform for Web and iOS. Comfortable across the stack — from live video streaming and PTZ camera control to translating Figma designs into pixel-accurate, responsive UI. Shipped apps to both the App Store and Play Store, and enjoys solving problems where real-time data, maps, and performance intersect.',
 }

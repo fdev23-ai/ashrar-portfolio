@@ -38,19 +38,10 @@ export default function Hero() {
           </motion.span>
         </h1>
 
-        <motion.p
-          initial={{ opacity: 0, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.9, duration: 0.6 }}
-          className="mt-8 max-w-xl text-lg leading-relaxed text-mist"
-        >
-          {profile.tagline}
-        </motion.p>
-
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.05, duration: 0.6 }}
+          transition={{ delay: 0.85, duration: 0.6 }}
           className="mt-10 flex flex-wrap items-center gap-4"
         >
           <MagneticButton
