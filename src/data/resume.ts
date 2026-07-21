@@ -107,7 +107,7 @@ export const projects: Project[] = [
       'One app, two roles: cashier and waiter workflows in a single build.',
       'Android client shipping now for phone and tablet; Windows client planned for the future.',
     ],
-    tags: ['Android', 'POS', 'Tablet & Mobile', 'Windows planned'],
+    tags: ['Flutter', 'POS', 'Tablet & Mobile', 'Windows planned'],
     icon: 'pos',
   },
   {
