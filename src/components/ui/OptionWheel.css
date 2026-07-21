@@ -1,0 +1,42 @@
+.option-wheel {
+  --ow-font-size: 1.9rem;
+  --ow-inset: 28px;
+
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+  outline: none;
+}
+
+.option-wheel--dragging {
+  cursor: grabbing;
+}
+
+.option-wheel__item {
+  position: absolute;
+  top: 50%;
+  left: var(--ow-inset);
+  transform-origin: left center;
+  white-space: nowrap;
+  font-family: var(--font-display);
+  font-size: var(--ow-font-size);
+  line-height: 1;
+  font-weight: 500;
+  cursor: pointer;
+  will-change: transform, opacity, filter;
+  color: color-mix(in srgb, var(--color-fog) calc(var(--ow-active, 0) * 100%), var(--color-mist) 60%);
+}
+
+.option-wheel--right .option-wheel__item {
+  left: auto;
+  right: var(--ow-inset);
+  transform-origin: right center;
+}
+
+.option-wheel__item--active {
+  font-weight: 700;
+}

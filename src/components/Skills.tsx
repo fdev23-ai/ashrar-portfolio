@@ -4,7 +4,12 @@ import { skillWheel, skillsMarquee } from '../data/resume'
 import ScrollReveal from './ui/ScrollReveal'
 import Marquee from './ui/Marquee'
 import SplitText from './ui/SplitText'
-import SkillWheel from './ui/SkillWheel'
+import OptionWheel from './ui/OptionWheel'
+
+// Hoisted so the array identity is stable across renders — OptionWheel's
+// internal effects key off `items`, and a fresh array every render would
+// tear down and rebuild its interaction state needlessly.
+const skillNames = skillWheel.map((s) => s.name)
 
 export default function Skills() {
   const [active, setActive] = useState(0)
@@ -27,12 +32,16 @@ export default function Skills() {
 
       <div className="container-px mx-auto mt-14 max-w-6xl">
         <ScrollReveal delay={0.15}>
-          <div className="grid grid-cols-1 items-center gap-10 rounded-2xl border border-line bg-surface-2/60 p-6 sm:p-10 md:grid-cols-2 md:gap-12">
-            <SkillWheel skills={skillWheel} active={active} onSelect={setActive} />
+          <div className="grid grid-cols-1 items-center gap-8 rounded-2xl border border-line bg-surface-2/60 p-6 sm:p-10 md:grid-cols-[minmax(0,1fr)_1px_minmax(0,1fr)] md:gap-10">
+            <div className="h-64 sm:h-72">
+              <OptionWheel items={skillNames} value={active} onChange={setActive} side="left" />
+            </div>
+
+            <div className="hidden h-full w-px bg-line md:block" />
 
             <div className="min-h-[180px]">
               <p className="font-display text-xs uppercase tracking-[0.2em] text-mist">
-                {active + 1} / {skillWheel.length} &middot; tap a node to explore
+                {active + 1} / {skillWheel.length} &middot; scroll, drag, or click a skill
               </p>
               <AnimatePresence mode="wait">
                 <motion.div

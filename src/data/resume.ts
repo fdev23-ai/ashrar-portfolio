@@ -120,86 +120,48 @@ export const projects: Project[] = [
   },
 ]
 
-export type SkillWheelIcon =
-  | 'flutter'
-  | 'react'
-  | 'webrtc'
-  | 'rtsp'
-  | 'websocket'
-  | 'ble'
-  | 'getx'
-  | 'backend'
-  | 'figma'
-  | 'scanner'
-
 export type SkillDetail = {
   name: string
-  icon: SkillWheelIcon
   description: string
 }
 
-// Curated skills for the interactive skill wheel — each paired with how it's
-// actually been used on a shipped project, not just a bare skill name.
+// Headline skills for the interactive option wheel — each paired with how
+// it's actually been used on a shipped project, not just a bare skill name.
+// TODO: the C# and Docker entries are generic placeholders (no specific
+// project to cite yet) — replace with real project context.
 export const skillWheel: SkillDetail[] = [
   {
-    name: 'Flutter',
-    icon: 'flutter',
-    description:
-      "The backbone of nearly everything I've shipped — the Etimad surveillance app, the POS system, the BLE Communicator, and every German Experts app all run on Flutter, across mobile, tablet, and web.",
-  },
-  {
     name: 'React',
-    icon: 'react',
     description:
       'Built the interactive-maps feature in the Etimad web app, and the full doctor-facing dashboard for the healthcare platform.',
   },
   {
-    name: 'WebRTC',
-    icon: 'webrtc',
+    name: 'Flutter',
     description:
-      'Streams live camera video with low latency inside the Etimad surveillance platform, across Web and iOS.',
+      "The backbone of nearly everything I've shipped — the Etimad surveillance app, the POS system, the BLE Communicator, and every German Experts app all run on Flutter, across mobile, tablet, and web.",
   },
   {
-    name: 'RTSP',
-    icon: 'rtsp',
+    name: 'Python',
     description:
-      'Pulls live feeds from IP cameras into the Etimad platform, which are then re-streamed to clients over WebRTC.',
+      "Comes with the Django backend for the Doctor Dashboard — the REST API and data layer are pure Python underneath.",
   },
   {
-    name: 'WebSocket',
-    icon: 'websocket',
-    description:
-      'Pushes real-time camera and map updates to the client without polling, keeping the Etimad dashboard live.',
+    name: 'C#',
+    description: 'Comfortable working in C# for typed, object-oriented backend and tooling work.',
   },
   {
-    name: 'BLE',
-    icon: 'ble',
-    description:
-      'Powers the BLE Communicator app, streaming live biometric data in real time from a BLE-connected wearable.',
+    name: 'Docker',
+    description: 'Used to containerize and deploy backend services for consistent, repeatable environments.',
   },
   {
-    name: 'GetX',
-    icon: 'getx',
-    description:
-      'State management for the Etimad Flutter app — keeps real-time map and camera updates fast even with multiple simultaneous streams.',
-  },
-  {
-    name: 'Django & PostgreSQL',
-    icon: 'backend',
+    name: 'Django',
     description:
       'Backend for the Doctor Dashboard — designed the REST API and data models from scratch and paired it with a PostgreSQL database.',
   },
   {
-    name: 'Figma',
-    icon: 'figma',
+    name: 'AI/ML',
     description:
-      'Used to design and prototype UI/UX at German Experts, then translated those designs pixel-accurately into Flutter.',
-  },
-  {
-    name: 'Zebra Barcode Scanning',
-    icon: 'scanner',
-    description:
-      'Integrated Zebra handheld scanner hardware into a stock inventory app built for German Experts.',
+      'Completed a 6-month AI/ML certification course through GUVi, covering core machine learning concepts and applications.',
   },
 ]
 
@@ -216,8 +178,12 @@ export const skillsMarquee = [
   'Bloc',
   'Provider',
   'Figma',
+  'Python',
   'Django',
   'PostgreSQL',
+  'C#',
+  'Docker',
+  'AI/ML',
   'REST APIs',
   'GraphQL',
   'Kotlin',
