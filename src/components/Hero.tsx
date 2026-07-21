@@ -2,8 +2,11 @@ import { motion } from 'framer-motion'
 import { FiArrowDown, FiMail } from 'react-icons/fi'
 import { profile } from '../data/resume'
 import SplitText from './ui/SplitText'
+import RotatingText from './ui/RotatingText'
 import MagneticButton from './ui/MagneticButton'
 import GradientBlobs from './ui/GradientBlobs'
+
+const rotatingRoles = ['Flutter', 'React']
 
 export default function Hero() {
   return (
@@ -25,11 +28,14 @@ export default function Hero() {
 
         <h1 className="max-w-4xl text-[clamp(2.5rem,7vw,5.5rem)] font-semibold leading-[1.02] text-fog">
           <SplitText text={`Hi, I'm ${profile.name.split(' ')[0]}.`} />
-          <SplitText
-            text={`I build real-time ${profile.focus} products.`}
-            className="text-gradient"
-            delay={0.15}
-          />
+          <motion.span
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.6 }}
+            className="block"
+          >
+            I build real-time <RotatingText texts={rotatingRoles} className="text-gradient" /> products.
+          </motion.span>
         </h1>
 
         <motion.p

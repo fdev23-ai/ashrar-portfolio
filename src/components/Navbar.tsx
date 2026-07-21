@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { FiMenu, FiX } from 'react-icons/fi'
+import { FiMenu, FiMoon, FiSun, FiX } from 'react-icons/fi'
+import { useTheme } from '../hooks/useTheme'
 
 const links = [
   { href: '#about', label: 'About' },
@@ -13,6 +14,7 @@ const links = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const { theme, toggleTheme } = useTheme()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
@@ -62,22 +64,34 @@ export default function Navbar() {
             </li>
           ))}
         </ul>
-        <a
-          href="#contact"
-          className="hidden rounded-full border border-line px-4 py-2 text-sm text-fog transition-colors hover:border-violet hover:text-violet md:inline-block"
-        >
-          Let&rsquo;s talk
-        </a>
 
-        <button
-          type="button"
-          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
-          aria-expanded={menuOpen}
-          onClick={() => setMenuOpen((open) => !open)}
-          className="flex h-9 w-9 items-center justify-center rounded-full border border-line text-fog md:hidden"
-        >
-          {menuOpen ? <FiX size={18} /> : <FiMenu size={18} />}
-        </button>
+        <div className="flex items-center gap-3">
+          <button
+            type="button"
+            onClick={toggleTheme}
+            aria-label={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-line text-mist transition-colors hover:border-violet hover:text-violet"
+          >
+            {theme === 'dark' ? <FiSun size={16} /> : <FiMoon size={16} />}
+          </button>
+
+          <a
+            href="#contact"
+            className="hidden rounded-full border border-line px-4 py-2 text-sm text-fog transition-colors hover:border-violet hover:text-violet md:inline-block"
+          >
+            Let&rsquo;s talk
+          </a>
+
+          <button
+            type="button"
+            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={menuOpen}
+            onClick={() => setMenuOpen((open) => !open)}
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-line text-fog md:hidden"
+          >
+            {menuOpen ? <FiX size={18} /> : <FiMenu size={18} />}
+          </button>
+        </div>
       </nav>
 
       <AnimatePresence>

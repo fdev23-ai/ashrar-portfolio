@@ -7,6 +7,15 @@
     <meta name="description" content="Ashrar Ahmed — Software Developer building real-time, cross-platform apps with Flutter and React." />
     <meta name="theme-color" content="#05060a" />
     <title>Ashrar Ahmed — Software Developer (Flutter & React)</title>
+    <script>
+      (function () {
+        var stored = localStorage.getItem('theme');
+        var theme = stored === 'light' || stored === 'dark'
+          ? stored
+          : (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+        document.documentElement.dataset.theme = theme;
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

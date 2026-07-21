@@ -17,6 +17,22 @@
   --color-pink: #f472b6;
 }
 
+/* Light theme overrides the same tokens the dark palette above defines, so
+   every bg-ink / text-fog / border-line utility repaints automatically —
+   nothing downstream needs a light: variant. */
+:root[data-theme='light'] {
+  --color-ink: #fbfbfd;
+  --color-surface: #f3f3f7;
+  --color-surface-2: #ffffff;
+  --color-line: #e3e3ea;
+  --color-mist: #63656f;
+  --color-fog: #14151a;
+
+  --color-violet: #7c3aed;
+  --color-cyan: #0891b2;
+  --color-pink: #db2777;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -31,6 +47,7 @@ body {
   color: var(--color-fog);
   font-family: var(--font-body);
   overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 h1, h2, h3, h4 {

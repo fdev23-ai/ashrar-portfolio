@@ -6,10 +6,10 @@ export default function GradientBlobs() {
       <div className="animate-float-slower absolute -right-40 top-10 h-[480px] w-[480px] rounded-full bg-cyan/20 blur-[120px]" />
       <div className="animate-float-slow absolute bottom-[-200px] left-1/3 h-[420px] w-[420px] rounded-full bg-pink/15 blur-[120px]" />
       <div
-        className="absolute inset-0 opacity-[0.03]"
+        className="absolute inset-0 opacity-[0.05]"
         style={{
           backgroundImage:
-            'linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)',
+            'linear-gradient(var(--color-fog) 1px, transparent 1px), linear-gradient(90deg, var(--color-fog) 1px, transparent 1px)',
           backgroundSize: '48px 48px',
         }}
       />
