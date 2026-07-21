@@ -33,7 +33,7 @@ export const experience: Experience[] = [
       'Added RTSP streaming support for connecting live cameras, using WebRTC for low-latency video on Web and iOS.',
       'Implemented PTZ (Pan-Tilt-Zoom) camera controls within the Flutter Web app.',
       'Applied GetX for scalable state management and real-time updates.',
-      'Worked with REST + WebSocket backend APIs to handle live updates and camera feeds, with performance tuning for multiple simultaneous streams.',
+      'Run the backend locally and make my own modifications when integrating REST + WebSocket APIs for live updates and camera feeds, with performance tuning for multiple simultaneous streams.',
       'Expanded into React, building a web app centered around an interactive maps feature, plus a Visitor Management App for check-in and tracking.',
     ],
   },

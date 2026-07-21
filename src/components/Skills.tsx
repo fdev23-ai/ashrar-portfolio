@@ -33,8 +33,11 @@ export default function Skills() {
       <div className="container-px mx-auto mt-14 max-w-6xl">
         <ScrollReveal delay={0.15}>
           <div className="grid grid-cols-1 items-center gap-8 rounded-2xl border border-line bg-surface-2/60 p-6 sm:p-10 md:grid-cols-[minmax(0,1fr)_1px_minmax(0,1fr)] md:gap-10">
-            <div className="h-64 sm:h-72">
-              <OptionWheel items={skillNames} value={active} onChange={setActive} side="left" />
+            <div>
+              <p className="font-display text-xs uppercase tracking-[0.2em] text-mist">Core Stack</p>
+              <div className="mt-3 h-64 sm:h-72">
+                <OptionWheel items={skillNames} value={active} onChange={setActive} side="left" />
+              </div>
             </div>
 
             <div className="hidden h-full w-px bg-line md:block" />
