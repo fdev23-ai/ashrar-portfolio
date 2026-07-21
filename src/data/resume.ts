@@ -47,6 +47,9 @@ export const experience: Experience[] = [
       'Developed cross-platform Android/iOS apps, including car service applications.',
       'Published two apps on Google Play Store and one on the Apple App Store.',
       'Built Loyalty Programs, Rent a Car, Recovery Requests, Buy a Car, and Car Service History apps, including warranty, invoice, and full service history views.',
+      'Built the GE mobile app, the company’s main customer-facing app.',
+      'Built a stock inventory app integrating Zebra handheld scanners for barcode-based tracking.',
+      'Built an internal Windows app for looking up employee extension numbers, plus an Android tablet app for office boys to receive and fulfill pantry orders.',
       'Collaborated with backend developers on API integration, real-time data, and performance optimization.',
       'Used Git for version control, code review, and team collaboration.',
     ],
@@ -60,11 +63,16 @@ export const experience: Experience[] = [
   },
 ]
 
+export type ProjectIcon = 'bluetooth' | 'health' | 'pos' | 'web'
+
 export type Project = {
   name: string
   description: string
   points: string[]
   tags: string[]
+  icon: ProjectIcon
+  // Text for the rotating curved-loop badge on this project's card (optional).
+  badgeText?: string
 }
 
 export const projects: Project[] = [
@@ -77,6 +85,38 @@ export const projects: Project[] = [
       'Explored Flutter Pigeon for type-safe native platform channel communication between Dart and native (iOS/Android) code.',
     ],
     tags: ['Flutter', 'BLE', 'Pigeon', 'Real-time'],
+    icon: 'bluetooth',
+    badgeText: 'BLE • WEARABLE • REAL-TIME • ',
+  },
+  {
+    name: 'Doctor Dashboard (Healthcare Platform)',
+    description:
+      'A complete healthcare management system built end-to-end — Django REST backend with PostgreSQL, and a React dashboard for doctors to manage patients and records.',
+    points: [
+      'Designed and built the full system: Django + PostgreSQL backend, React frontend.',
+      'Owned the system architecture and data models as a complete, independent build.',
+    ],
+    tags: ['Django', 'PostgreSQL', 'React', 'Full-stack'],
+    icon: 'health',
+  },
+  {
+    name: 'POS System (Cashier & Waiter App)',
+    description:
+      'An all-in-one point-of-sale app covering both cashier and waiter workflows in a single app, built for Android with tablet and mobile support — Windows support planned next.',
+    points: [
+      'One app, two roles: cashier and waiter workflows in a single build.',
+      'Android client shipping now for phone and tablet; Windows client planned for the future.',
+    ],
+    tags: ['Android', 'POS', 'Tablet & Mobile', 'Windows planned'],
+    icon: 'pos',
+  },
+  {
+    name: 'Static Business Websites',
+    description:
+      'Designed and deployed several static business websites for clients, hosted under tashjeel.ae.',
+    points: ['Handled design, development, and hosting end-to-end for each site.'],
+    tags: ['Web', 'Static Sites', 'Hosting'],
+    icon: 'web',
   },
 ]
 
@@ -95,7 +135,7 @@ export const skillGroups: { title: string; skills: string[] }[] = [
   },
   {
     title: 'Backend & APIs',
-    skills: ['REST APIs', 'GraphQL', 'Flutter Pigeon'],
+    skills: ['Django', 'PostgreSQL', 'REST APIs', 'GraphQL', 'Flutter Pigeon'],
   },
   {
     title: 'Design & Tooling',
@@ -116,6 +156,8 @@ export const skillsMarquee = [
   'Bloc',
   'Provider',
   'Figma',
+  'Django',
+  'PostgreSQL',
   'REST APIs',
   'GraphQL',
   'Kotlin',
