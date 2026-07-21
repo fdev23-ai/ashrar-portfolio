@@ -1,9 +1,15 @@
-import { skillGroups, skillsMarquee } from '../data/resume'
+import { useState } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
+import { skillWheel, skillsMarquee } from '../data/resume'
 import ScrollReveal from './ui/ScrollReveal'
 import Marquee from './ui/Marquee'
 import SplitText from './ui/SplitText'
+import SkillWheel from './ui/SkillWheel'
 
 export default function Skills() {
+  const [active, setActive] = useState(0)
+  const activeSkill = skillWheel[active]
+
   return (
     <section id="skills" className="section-pad relative bg-surface/40">
       <div className="container-px mx-auto max-w-6xl">
@@ -19,26 +25,30 @@ export default function Skills() {
         <Marquee items={skillsMarquee} />
       </ScrollReveal>
 
-      <div className="container-px mx-auto mt-14 grid max-w-6xl grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-        {skillGroups.map((group, i) => (
-          <ScrollReveal key={group.title} delay={i * 0.06}>
-            <div className="rounded-2xl border border-line bg-surface-2/60 p-6">
-              <h3 className="font-display text-sm uppercase tracking-[0.15em] text-violet">
-                {group.title}
-              </h3>
-              <ul className="mt-4 flex flex-wrap gap-2">
-                {group.skills.map((skill) => (
-                  <li
-                    key={skill}
-                    className="rounded-full border border-line px-3 py-1 text-sm text-fog"
-                  >
-                    {skill}
-                  </li>
-                ))}
-              </ul>
+      <div className="container-px mx-auto mt-14 max-w-6xl">
+        <ScrollReveal delay={0.15}>
+          <div className="grid grid-cols-1 items-center gap-10 rounded-2xl border border-line bg-surface-2/60 p-6 sm:p-10 md:grid-cols-2 md:gap-12">
+            <SkillWheel skills={skillWheel} active={active} onSelect={setActive} />
+
+            <div className="min-h-[180px]">
+              <p className="font-display text-xs uppercase tracking-[0.2em] text-mist">
+                {active + 1} / {skillWheel.length} &middot; tap a node to explore
+              </p>
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeSkill.name}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+                >
+                  <h3 className="mt-3 font-display text-2xl font-medium text-fog">{activeSkill.name}</h3>
+                  <p className="mt-3 text-[15px] leading-relaxed text-mist">{activeSkill.description}</p>
+                </motion.div>
+              </AnimatePresence>
             </div>
-          </ScrollReveal>
-        ))}
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   )

@@ -120,26 +120,86 @@ export const projects: Project[] = [
   },
 ]
 
-export const skillGroups: { title: string; skills: string[] }[] = [
+export type SkillWheelIcon =
+  | 'flutter'
+  | 'react'
+  | 'webrtc'
+  | 'rtsp'
+  | 'websocket'
+  | 'ble'
+  | 'getx'
+  | 'backend'
+  | 'figma'
+  | 'scanner'
+
+export type SkillDetail = {
+  name: string
+  icon: SkillWheelIcon
+  description: string
+}
+
+// Curated skills for the interactive skill wheel — each paired with how it's
+// actually been used on a shipped project, not just a bare skill name.
+export const skillWheel: SkillDetail[] = [
   {
-    title: 'Frameworks',
-    skills: ['Flutter', 'Dart', 'React', 'Native Android (Java/Kotlin)'],
+    name: 'Flutter',
+    icon: 'flutter',
+    description:
+      "The backbone of nearly everything I've shipped — the Etimad surveillance app, the POS system, the BLE Communicator, and every German Experts app all run on Flutter, across mobile, tablet, and web.",
   },
   {
-    title: 'State Management',
-    skills: ['GetX', 'Provider', 'Bloc', 'Cubit'],
+    name: 'React',
+    icon: 'react',
+    description:
+      'Built the interactive-maps feature in the Etimad web app, and the full doctor-facing dashboard for the healthcare platform.',
   },
   {
-    title: 'Real-time & Streaming',
-    skills: ['WebRTC', 'RTSP', 'WebSocket', 'BLE'],
+    name: 'WebRTC',
+    icon: 'webrtc',
+    description:
+      'Streams live camera video with low latency inside the Etimad surveillance platform, across Web and iOS.',
   },
   {
-    title: 'Backend & APIs',
-    skills: ['Django', 'PostgreSQL', 'REST APIs', 'GraphQL', 'Flutter Pigeon'],
+    name: 'RTSP',
+    icon: 'rtsp',
+    description:
+      'Pulls live feeds from IP cameras into the Etimad platform, which are then re-streamed to clients over WebRTC.',
   },
   {
-    title: 'Design & Tooling',
-    skills: ['Figma', 'UI/UX Design Integration', 'Git', 'GitHub / GitLab / Bitbucket'],
+    name: 'WebSocket',
+    icon: 'websocket',
+    description:
+      'Pushes real-time camera and map updates to the client without polling, keeping the Etimad dashboard live.',
+  },
+  {
+    name: 'BLE',
+    icon: 'ble',
+    description:
+      'Powers the BLE Communicator app, streaming live biometric data in real time from a BLE-connected wearable.',
+  },
+  {
+    name: 'GetX',
+    icon: 'getx',
+    description:
+      'State management for the Etimad Flutter app — keeps real-time map and camera updates fast even with multiple simultaneous streams.',
+  },
+  {
+    name: 'Django & PostgreSQL',
+    icon: 'backend',
+    description:
+      'Backend for the Doctor Dashboard — designed the REST API and data models from scratch and paired it with a PostgreSQL database.',
+  },
+  {
+    name: 'Figma',
+    icon: 'figma',
+    description:
+      'Used to design and prototype UI/UX at German Experts, then translated those designs pixel-accurately into Flutter.',
+  },
+  {
+    name: 'Zebra Barcode Scanning',
+    icon: 'scanner',
+    description:
+      'Integrated Zebra handheld scanner hardware into a stock inventory app built for German Experts.',
   },
 ]
 
