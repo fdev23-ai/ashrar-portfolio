@@ -23,27 +23,33 @@ export default function RotatingText({ texts, className = '', rotationInterval =
   const characters = texts[index].split('')
 
   return (
-    <span className="relative inline-block overflow-hidden align-bottom">
+    // No overflow-hidden here: splitting a word into per-character spans
+    // makes the sum of their widths run slightly wider than the same word
+    // measured as one string (kerning isn't applied across separate inline
+    // boxes), so clipping at the word level cuts off the last character or
+    // two. Each character gets its own tightly-fitted clip box instead.
+    <span className="relative inline-block align-bottom">
       <span className="invisible" aria-hidden>
         {texts.reduce((longest, t) => (t.length > longest.length ? t : longest), '')}
       </span>
       <AnimatePresence mode="wait">
         <motion.span key={texts[index]} className="absolute inset-0 flex" aria-live="polite">
           {characters.map((char, i) => (
-            <motion.span
-              key={i}
-              // className (e.g. text-gradient) goes on the same element that
-              // animates `transform` — an ancestor's background-clip:text
-              // stops rendering once a descendant gets promoted to its own
-              // paint layer, which `transform` does just as much as `filter`.
-              className={`inline-block ${className}`}
-              initial={{ y: '110%', opacity: 0 }}
-              animate={{ y: '0%', opacity: 1 }}
-              exit={{ y: '-120%', opacity: 0 }}
-              transition={{ duration: 0.4, delay: i * 0.025, ease: [0.16, 1, 0.3, 1] }}
-            >
-              {char === ' ' ? ' ' : char}
-            </motion.span>
+            <span key={i} className="inline-block overflow-hidden pb-[0.1em] align-bottom">
+              <motion.span
+                // className (e.g. text-gradient) goes on the same element that
+                // animates `transform` — an ancestor's background-clip:text
+                // stops rendering once a descendant gets promoted to its own
+                // paint layer, which `transform` does just as much as `filter`.
+                className={`inline-block ${className}`}
+                initial={{ y: '110%', opacity: 0 }}
+                animate={{ y: '0%', opacity: 1 }}
+                exit={{ y: '-120%', opacity: 0 }}
+                transition={{ duration: 0.4, delay: i * 0.025, ease: [0.16, 1, 0.3, 1] }}
+              >
+                {char === ' ' ? ' ' : char}
+              </motion.span>
+            </span>
           ))}
         </motion.span>
       </AnimatePresence>
