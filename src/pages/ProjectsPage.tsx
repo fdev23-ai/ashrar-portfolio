@@ -19,7 +19,7 @@ export default function ProjectsPage() {
           <div className="container-px relative z-10 mx-auto max-w-6xl">
             <Link
               to="/"
-              className="inline-flex items-center gap-2 font-display text-sm text-mist transition-colors hover:text-violet"
+              className="inline-flex items-center gap-2 rounded-full border border-line px-4 py-2 font-display text-sm text-fog transition-colors hover:border-violet hover:text-violet"
             >
               <FiArrowLeft /> Back home
             </Link>

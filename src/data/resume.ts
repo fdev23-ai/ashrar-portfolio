@@ -70,7 +70,6 @@ export type ProjectIcon =
   | 'database'
   | 'crop'
   | 'emotion'
-  | 'face'
   | 'plant'
   | 'heartbeat'
 
@@ -160,23 +159,18 @@ export const aiProjects: AiProject[] = [
     icon: 'database',
   },
   {
-    name: 'Crop Prediction',
-    description: 'An ML model predicting the most suitable crop from soil and environmental parameters.',
+    name: 'Global Crop Prediction',
+    description: 'An ML model predicting the most suitable crop across regions from soil and environmental parameters.',
     icon: 'crop',
   },
   {
-    name: 'Emotion Detection',
-    description: 'A computer vision model classifying human emotion from facial expressions in images.',
+    name: 'Face Emotion Detection',
+    description: 'A computer vision pipeline that detects a face in an image, then classifies its emotion from expression.',
     icon: 'emotion',
   },
   {
-    name: 'Face Detection',
-    description: 'A computer vision project for detecting and localizing faces in images and video.',
-    icon: 'face',
-  },
-  {
-    name: 'Plant Detection',
-    description: 'An image classification model identifying plant species and health from photos.',
+    name: 'Plant Disease Detection',
+    description: 'An image classification model identifying plant diseases from photos of leaves.',
     icon: 'plant',
   },
   {

@@ -63,6 +63,13 @@ export default function Navbar() {
           </Link>
         )}
         <ul className="hidden items-center gap-8 md:flex">
+          {!isHome && (
+            <li>
+              <Link to="/" className="text-sm text-mist transition-colors hover:text-fog">
+                Home
+              </Link>
+            </li>
+          )}
           {links.map((link) =>
             isHome ? (
               <li key={link.href}>
@@ -127,6 +134,17 @@ export default function Navbar() {
             transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
             className="overflow-hidden border-t border-line bg-ink/95 backdrop-blur-md md:hidden"
           >
+            {!isHome && (
+              <li className="border-b border-line/60">
+                <Link
+                  to="/"
+                  onClick={() => setMenuOpen(false)}
+                  className="container-px mx-auto block py-4 text-base text-fog"
+                >
+                  Home
+                </Link>
+              </li>
+            )}
             {links.map((link) => (
               <li key={link.href} className="border-b border-line/60 last:border-none">
                 <Link
