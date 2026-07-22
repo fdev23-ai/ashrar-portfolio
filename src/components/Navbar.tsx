@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
+import { Link, useLocation } from 'react-router-dom'
 import { FiMenu, FiMoon, FiSun, FiX } from 'react-icons/fi'
 import { useTheme } from '../hooks/useTheme'
 
@@ -15,6 +16,8 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const { theme, toggleTheme } = useTheme()
+  const location = useLocation()
+  const isHome = location.pathname === '/'
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
@@ -28,6 +31,7 @@ export default function Navbar() {
   // dropping the scroll (the hash updates but the page never moves).
 
   function handleMobileNavClick(e: React.MouseEvent<HTMLAnchorElement>, href: string) {
+    if (!isHome) return // cross-page: let the Link + Home's hash effect handle it
     e.preventDefault()
     setMenuOpen(false)
     // Wait for the menu's collapse animation (250ms) to finish before
@@ -49,20 +53,31 @@ export default function Navbar() {
       }`}
     >
       <nav className="container-px mx-auto flex h-16 max-w-6xl items-center justify-between">
-        <a href="#top" className="font-display text-lg font-semibold tracking-tight text-fog">
-          Ashrar<span className="text-gradient">.</span>
-        </a>
+        {isHome ? (
+          <a href="#top" className="font-display text-lg font-semibold tracking-tight text-fog">
+            Ashrar<span className="text-gradient">.</span>
+          </a>
+        ) : (
+          <Link to="/" className="font-display text-lg font-semibold tracking-tight text-fog">
+            Ashrar<span className="text-gradient">.</span>
+          </Link>
+        )}
         <ul className="hidden items-center gap-8 md:flex">
-          {links.map((link) => (
-            <li key={link.href}>
-              <a
-                href={link.href}
-                className="text-sm text-mist transition-colors hover:text-fog"
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
+          {links.map((link) =>
+            isHome ? (
+              <li key={link.href}>
+                <a href={link.href} className="text-sm text-mist transition-colors hover:text-fog">
+                  {link.label}
+                </a>
+              </li>
+            ) : (
+              <li key={link.href}>
+                <Link to={`/${link.href}`} className="text-sm text-mist transition-colors hover:text-fog">
+                  {link.label}
+                </Link>
+              </li>
+            )
+          )}
         </ul>
 
         <div className="flex items-center gap-3">
@@ -75,12 +90,21 @@ export default function Navbar() {
             {theme === 'dark' ? <FiSun size={16} /> : <FiMoon size={16} />}
           </button>
 
-          <a
-            href="#contact"
-            className="hidden rounded-full border border-line px-4 py-2 text-sm text-fog transition-colors hover:border-violet hover:text-violet md:inline-block"
-          >
-            Let&rsquo;s talk
-          </a>
+          {isHome ? (
+            <a
+              href="#contact"
+              className="hidden rounded-full border border-line px-4 py-2 text-sm text-fog transition-colors hover:border-violet hover:text-violet md:inline-block"
+            >
+              Let&rsquo;s talk
+            </a>
+          ) : (
+            <Link
+              to="/#contact"
+              className="hidden rounded-full border border-line px-4 py-2 text-sm text-fog transition-colors hover:border-violet hover:text-violet md:inline-block"
+            >
+              Let&rsquo;s talk
+            </Link>
+          )}
 
           <button
             type="button"
@@ -105,13 +129,16 @@ export default function Navbar() {
           >
             {links.map((link) => (
               <li key={link.href} className="border-b border-line/60 last:border-none">
-                <a
-                  href={link.href}
-                  onClick={(e) => handleMobileNavClick(e, link.href)}
+                <Link
+                  to={isHome ? link.href : `/${link.href}`}
+                  onClick={(e) => {
+                    handleMobileNavClick(e, link.href)
+                    if (!isHome) setMenuOpen(false)
+                  }}
                   className="container-px mx-auto block py-4 text-base text-fog"
                 >
                   {link.label}
-                </a>
+                </Link>
               </li>
             ))}
           </motion.ul>

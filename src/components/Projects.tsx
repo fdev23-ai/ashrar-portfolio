@@ -1,32 +1,41 @@
-import type { ComponentType } from 'react'
-import { projects, type ProjectIcon } from '../data/resume'
+import { Link } from 'react-router-dom'
+import { FiArrowRight } from 'react-icons/fi'
+import { projects } from '../data/resume'
+import { projectIcons } from './projectIcons'
 import ScrollReveal from './ui/ScrollReveal'
 import TiltCard from './ui/TiltCard'
 import SplitText from './ui/SplitText'
 import CurvedLoop from './ui/CurvedLoop'
-import { FiActivity, FiBluetooth, FiGlobe, FiShoppingCart } from 'react-icons/fi'
+import MagneticButton from './ui/MagneticButton'
 
-const icons: Record<ProjectIcon, ComponentType<{ size?: number }>> = {
-  bluetooth: FiBluetooth,
-  health: FiActivity,
-  pos: FiShoppingCart,
-  web: FiGlobe,
-}
+const featured = projects.filter((p) => p.featured)
 
 export default function Projects() {
   return (
     <section id="projects" className="section-pad relative">
       <div className="container-px mx-auto max-w-6xl">
-        <ScrollReveal>
-          <span className="font-display text-sm uppercase tracking-[0.2em] text-pink">Projects</span>
-        </ScrollReveal>
-        <h2 className="mt-4 max-w-2xl text-[clamp(1.75rem,4vw,3rem)] font-semibold text-fog">
-          <SplitText text="Things I've built on the side." />
-        </h2>
+        <div className="flex flex-wrap items-end justify-between gap-6">
+          <div>
+            <ScrollReveal>
+              <span className="font-display text-sm uppercase tracking-[0.2em] text-pink">Projects</span>
+            </ScrollReveal>
+            <h2 className="mt-4 max-w-2xl text-[clamp(1.75rem,4vw,3rem)] font-semibold text-fog">
+              <SplitText text="Things I've built." />
+            </h2>
+          </div>
+          <ScrollReveal delay={0.1}>
+            <MagneticButton
+              href="/projects"
+              className="inline-flex items-center gap-2 rounded-full border border-line px-5 py-2.5 font-display text-sm text-fog hover:border-violet hover:text-violet"
+            >
+              View all projects <FiArrowRight />
+            </MagneticButton>
+          </ScrollReveal>
+        </div>
 
         <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2">
-          {projects.map((project, i) => {
-            const Icon = icons[project.icon]
+          {featured.map((project, i) => {
+            const Icon = projectIcons[project.icon]
             return (
               <ScrollReveal key={project.name} delay={i * 0.08}>
                 <TiltCard className="h-full p-8">
@@ -66,16 +75,13 @@ export default function Projects() {
               </ScrollReveal>
             )
           })}
-
-          <ScrollReveal delay={projects.length * 0.08}>
-            <div className="flex h-full flex-col items-start justify-center rounded-2xl border border-dashed border-line p-8 text-mist">
-              <p className="font-display text-lg text-fog">More on the way</p>
-              <p className="mt-2 text-sm leading-relaxed">
-                Always building something new — more case studies coming soon.
-              </p>
-            </div>
-          </ScrollReveal>
         </div>
+
+        <ScrollReveal delay={0.2} className="mt-8 text-center">
+          <Link to="/projects" className="font-display text-sm text-mist underline-offset-4 hover:text-violet hover:underline">
+            + {projects.length - featured.length} more, including AI/ML practice projects
+          </Link>
+        </ScrollReveal>
       </div>
     </section>
   )

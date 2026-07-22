@@ -61,7 +61,18 @@ export const experience: Experience[] = [
   },
 ]
 
-export type ProjectIcon = 'bluetooth' | 'health' | 'pos' | 'web'
+export type ProjectIcon =
+  | 'bluetooth'
+  | 'health'
+  | 'pos'
+  | 'web'
+  | 'apps'
+  | 'database'
+  | 'crop'
+  | 'emotion'
+  | 'face'
+  | 'plant'
+  | 'heartbeat'
 
 export type Project = {
   name: string
@@ -69,11 +80,26 @@ export type Project = {
   points: string[]
   tags: string[]
   icon: ProjectIcon
+  // Shown as one of the two homepage highlights; everything else lives on
+  // the dedicated /projects page only.
+  featured?: boolean
   // Text for the rotating curved-loop badge on this project's card (optional).
   badgeText?: string
 }
 
 export const projects: Project[] = [
+  {
+    name: 'German Experts Car Service Apps',
+    description:
+      '3 years building the car-service app suite at German Experts — Loyalty Programs, Rent a Car, Recovery Requests, Buy a Car, and Car Service History, plus the main GE customer-facing app.',
+    points: [
+      'Shipped across the Apple App Store and Google Play Store.',
+      'Designed the UI/UX in Figma, then built it pixel-accurate in Flutter, working closely with backend developers on API integration.',
+    ],
+    tags: ['Flutter', 'Figma', 'iOS & Android', '3 years'],
+    icon: 'apps',
+    featured: true,
+  },
   {
     name: 'BLE Communicator App',
     description:
@@ -85,6 +111,7 @@ export const projects: Project[] = [
     tags: ['Flutter', 'BLE', 'Pigeon', 'Real-time'],
     icon: 'bluetooth',
     badgeText: 'BLE • WEARABLE • REAL-TIME • ',
+    featured: true,
   },
   {
     name: 'Doctor Dashboard (Healthcare Platform)',
@@ -115,6 +142,47 @@ export const projects: Project[] = [
     points: ['Handled design, development, and hosting end-to-end for each site.'],
     tags: ['Web', 'Static Sites', 'Hosting'],
     icon: 'web',
+  },
+]
+
+export type AiProject = {
+  name: string
+  description: string
+  icon: ProjectIcon
+}
+
+// Practice projects from the GUVi AI/ML certification course — smaller in
+// scope than the shipped products above, kept in their own group.
+export const aiProjects: AiProject[] = [
+  {
+    name: 'Data Harvesting',
+    description: 'A web scraping and data collection pipeline for gathering and cleaning datasets used in ML projects.',
+    icon: 'database',
+  },
+  {
+    name: 'Crop Prediction',
+    description: 'An ML model predicting the most suitable crop from soil and environmental parameters.',
+    icon: 'crop',
+  },
+  {
+    name: 'Emotion Detection',
+    description: 'A computer vision model classifying human emotion from facial expressions in images.',
+    icon: 'emotion',
+  },
+  {
+    name: 'Face Detection',
+    description: 'A computer vision project for detecting and localizing faces in images and video.',
+    icon: 'face',
+  },
+  {
+    name: 'Plant Detection',
+    description: 'An image classification model identifying plant species and health from photos.',
+    icon: 'plant',
+  },
+  {
+    name: 'Health Check',
+    description: 'An ML-based tool for predicting health risk indicators from basic symptom and vitals input.',
+    icon: 'heartbeat',
   },
 ]
 

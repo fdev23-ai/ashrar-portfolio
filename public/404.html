@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ashrar Ahmed — Software Developer (Flutter & React)</title>
+    <!--
+      GitHub Pages has no server-side rewrites, so a direct load or refresh of
+      a client-side route (e.g. /ashrar-portfolio/projects) 404s here instead
+      of reaching index.html. This encodes the intended path into a query
+      string and redirects to index.html, which decodes it back before the
+      router mounts (see the inline script in index.html). Standard technique:
+      https://github.com/rafgraph/spa-github-pages
+    -->
+    <script>
+      var segmentCount = 1 // number of path segments before the app's own routes (just "/ashrar-portfolio")
+      var l = window.location
+      l.replace(
+        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+          l.pathname.split('/').slice(0, 1 + segmentCount).join('/') + '/?/' +
+          l.pathname.slice(1).split('/').slice(segmentCount).join('/').replace(/&/g, '~and~') +
+          (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+          l.hash
+      )
+    </script>
+  </head>
+  <body></body>
+</html>

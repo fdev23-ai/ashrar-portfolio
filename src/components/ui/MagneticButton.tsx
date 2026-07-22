@@ -1,5 +1,6 @@
 import { useRef, type ReactNode, type MouseEvent } from 'react'
 import { motion, useMotionValue, useSpring } from 'framer-motion'
+import { Link } from 'react-router-dom'
 
 type MagneticButtonProps = {
   children: ReactNode
@@ -17,7 +18,7 @@ export default function MagneticButton({
   className = '',
   strength = 0.35,
 }: MagneticButtonProps) {
-  const ref = useRef<HTMLAnchorElement | HTMLButtonElement | null>(null)
+  const ref = useRef<HTMLElement | null>(null)
   const x = useMotionValue(0)
   const y = useMotionValue(0)
   const springX = useSpring(x, { stiffness: 200, damping: 15, mass: 0.3 })
@@ -38,6 +39,32 @@ export default function MagneticButton({
     y.set(0)
   }
 
+  const motionProps = {
+    onMouseMove: handleMouseMove,
+    onMouseLeave: handleMouseLeave,
+    style: { x: springX, y: springY },
+    whileTap: { scale: 0.94 },
+  }
+
+  // An internal route (e.g. "/projects") goes through react-router's Link so
+  // it does client-side navigation with the basename applied correctly.
+  // Kept as a plain (non-motion) element nested inside the motion.div: an
+  // earlier version passed Link through framer-motion's `motion(Link)`
+  // wrapper directly, which triggered "Invalid hook call" — motion-wrapping
+  // a component that itself calls router hooks isn't safe here, so the
+  // motion transform and the router navigation are two separate elements.
+  const isInternalRoute = href?.startsWith('/') && !href.startsWith('//')
+
+  if (isInternalRoute) {
+    return (
+      <motion.div ref={ref as any} {...motionProps} className="inline-block">
+        <Link to={href!} onClick={onClick} className={className}>
+          {children}
+        </Link>
+      </motion.div>
+    )
+  }
+
   const Tag: any = href ? motion.a : motion.button
 
   return (
@@ -47,10 +74,7 @@ export default function MagneticButton({
       onClick={onClick}
       target={href?.startsWith('http') ? '_blank' : undefined}
       rel={href?.startsWith('http') ? 'noreferrer' : undefined}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      style={{ x: springX, y: springY }}
-      whileTap={{ scale: 0.94 }}
+      {...motionProps}
       className={className}
     >
       {children}

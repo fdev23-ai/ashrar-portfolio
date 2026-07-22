@@ -16,6 +16,25 @@
         document.documentElement.dataset.theme = theme;
       })();
     </script>
+    <script>
+      // Reverses the redirect 404.html performs — decodes the real path back
+      // out of the query string before the router mounts, so a direct load
+      // or refresh of e.g. /ashrar-portfolio/projects lands on that route
+      // instead of the homepage. See public/404.html for the other half.
+      (function () {
+        var l = window.location
+        if (l.search[1] === '/') {
+          var decoded = l.search.slice(1).split('&').map(function (s) {
+            return s.replace(/~and~/g, '&')
+          })
+          window.history.replaceState(
+            null,
+            '',
+            l.pathname.slice(0, -1) + decoded[0] + (decoded.slice(1).length ? '?' + decoded.slice(1).join('&') : '') + l.hash
+          )
+        }
+      })()
+    </script>
   </head>
   <body>
     <div id="root"></div>
