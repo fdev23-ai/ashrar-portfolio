@@ -118,8 +118,11 @@ export const projects: Project[] = [
   },
 ]
 
+export type SkillWheelIcon = 'react' | 'flutter' | 'python' | 'csharp' | 'docker' | 'django' | 'ai' | 'bloc'
+
 export type SkillDetail = {
   name: string
+  icon: SkillWheelIcon
   description: string
 }
 
@@ -130,36 +133,48 @@ export type SkillDetail = {
 export const skillWheel: SkillDetail[] = [
   {
     name: 'React',
+    icon: 'react',
     description:
       'Built the interactive-maps feature in the Etimad web app, and the full doctor-facing dashboard for the healthcare platform.',
   },
   {
     name: 'Flutter',
+    icon: 'flutter',
     description:
       "The backbone of nearly everything I've shipped — the Etimad surveillance app, the POS system, the BLE Communicator, and every German Experts app all run on Flutter, across mobile, tablet, and web.",
   },
   {
     name: 'Python',
+    icon: 'python',
     description:
       "Comes with the Django backend for the Doctor Dashboard — the REST API and data layer are pure Python underneath.",
   },
   {
     name: 'C#',
+    icon: 'csharp',
     description: 'Comfortable working in C# for typed, object-oriented backend and tooling work.',
   },
   {
     name: 'Docker',
+    icon: 'docker',
     description: 'Used to containerize and deploy backend services for consistent, repeatable environments.',
   },
   {
     name: 'Django',
+    icon: 'django',
     description:
       'Backend for the Doctor Dashboard — designed the REST API and data models from scratch and paired it with a PostgreSQL database.',
   },
   {
     name: 'AI/ML',
+    icon: 'ai',
     description:
       'Completed a 6-month AI/ML certification course through GUVi, covering core machine learning concepts and applications.',
+  },
+  {
+    name: 'Bloc',
+    icon: 'bloc',
+    description: 'Part of my Flutter state-management toolkit alongside GetX, for structuring predictable, testable app state.',
   },
 ]
 

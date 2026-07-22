@@ -1,8 +1,13 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react'
 import './OptionWheel.css'
 
+export type OptionWheelItem = {
+  label: string
+  icon?: ReactNode
+}
+
 type OptionWheelProps = {
-  items: string[]
+  items: OptionWheelItem[]
   value: number
   onChange: (index: number) => void
   side?: 'left' | 'right'
@@ -17,7 +22,7 @@ type OptionWheelProps = {
 }
 
 type Config = {
-  items: string[]
+  items: OptionWheelItem[]
   side: 'left' | 'right'
   fontSize: number
   spacing: number
@@ -227,9 +232,9 @@ export default function OptionWheel({
       onPointerCancel={handlePointerUp}
       onKeyDown={handleKeyDown}
     >
-      {items.map((label, i) => (
+      {items.map((item, i) => (
         <div
-          key={label}
+          key={item.label}
           ref={(el) => {
             rowRefs.current[i] = el
           }}
@@ -240,7 +245,8 @@ export default function OptionWheel({
             if (!draggedRef.current) setTarget(i, true)
           }}
         >
-          {label}
+          {item.icon && <span className="option-wheel__icon">{item.icon}</span>}
+          {item.label}
         </div>
       ))}
     </div>

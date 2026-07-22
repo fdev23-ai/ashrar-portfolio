@@ -21,6 +21,9 @@
   top: 50%;
   left: var(--ow-inset);
   transform-origin: left center;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
   white-space: nowrap;
   font-family: var(--font-display);
   font-size: var(--ow-font-size);
@@ -35,8 +38,16 @@
   left: auto;
   right: var(--ow-inset);
   transform-origin: right center;
+  flex-direction: row-reverse;
 }
 
 .option-wheel__item--active {
   font-weight: 700;
+}
+
+.option-wheel__icon {
+  display: flex;
+  flex-shrink: 0;
+  font-size: 0.6em;
+  color: color-mix(in srgb, var(--color-violet) calc(var(--ow-active, 0) * 100%), currentcolor);
 }

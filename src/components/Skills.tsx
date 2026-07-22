@@ -1,15 +1,31 @@
-import { useState } from 'react'
+import { useState, type ComponentType } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { skillWheel, skillsMarquee } from '../data/resume'
+import { FiBox, FiCpu } from 'react-icons/fi'
+import { SiDjango, SiDocker, SiFlutter, SiPython, SiReact, SiSharp } from 'react-icons/si'
+import { skillWheel, skillsMarquee, type SkillWheelIcon } from '../data/resume'
 import ScrollReveal from './ui/ScrollReveal'
 import Marquee from './ui/Marquee'
 import SplitText from './ui/SplitText'
 import OptionWheel from './ui/OptionWheel'
 
+const wheelIcons: Record<SkillWheelIcon, ComponentType<{ size?: number }>> = {
+  react: SiReact,
+  flutter: SiFlutter,
+  python: SiPython,
+  csharp: SiSharp,
+  docker: SiDocker,
+  django: SiDjango,
+  ai: FiCpu,
+  bloc: FiBox,
+}
+
 // Hoisted so the array identity is stable across renders — OptionWheel's
 // internal effects key off `items`, and a fresh array every render would
 // tear down and rebuild its interaction state needlessly.
-const skillNames = skillWheel.map((s) => s.name)
+const wheelItems = skillWheel.map((s) => {
+  const Icon = wheelIcons[s.icon]
+  return { label: s.name, icon: <Icon size={16} /> }
+})
 
 export default function Skills() {
   const [active, setActive] = useState(0)
@@ -36,7 +52,7 @@ export default function Skills() {
             <div>
               <p className="font-display text-xs uppercase tracking-[0.2em] text-mist">Core Stack</p>
               <div className="mt-3 h-64 sm:h-72">
-                <OptionWheel items={skillNames} value={active} onChange={setActive} side="left" />
+                <OptionWheel items={wheelItems} value={active} onChange={setActive} side="left" />
               </div>
             </div>
 
