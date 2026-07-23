@@ -8,6 +8,9 @@ type MagneticButtonProps = {
   onClick?: () => void
   className?: string
   strength?: number
+  // A static asset to download (e.g. a PDF) rather than an SPA route —
+  // forces the plain-<a> path below even though the href starts with "/".
+  download?: boolean | string
 }
 
 /** A button that gently pulls toward the cursor, ReactBits "magnetic" style. */
@@ -17,6 +20,7 @@ export default function MagneticButton({
   onClick,
   className = '',
   strength = 0.35,
+  download,
 }: MagneticButtonProps) {
   const ref = useRef<HTMLElement | null>(null)
   const x = useMotionValue(0)
@@ -53,7 +57,7 @@ export default function MagneticButton({
   // wrapper directly, which triggered "Invalid hook call" — motion-wrapping
   // a component that itself calls router hooks isn't safe here, so the
   // motion transform and the router navigation are two separate elements.
-  const isInternalRoute = href?.startsWith('/') && !href.startsWith('//')
+  const isInternalRoute = !download && href?.startsWith('/') && !href.startsWith('//')
 
   if (isInternalRoute) {
     return (
@@ -71,9 +75,10 @@ export default function MagneticButton({
     <Tag
       ref={ref as any}
       href={href}
+      download={download}
       onClick={onClick}
-      target={href?.startsWith('http') ? '_blank' : undefined}
-      rel={href?.startsWith('http') ? 'noreferrer' : undefined}
+      target={!download && href?.startsWith('http') ? '_blank' : undefined}
+      rel={!download && href?.startsWith('http') ? 'noreferrer' : undefined}
       {...motionProps}
       className={className}
     >

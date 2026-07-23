@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
-import { FiArrowDown, FiMail } from 'react-icons/fi'
-import { profile } from '../data/resume'
+import { FiArrowDown, FiDownload, FiMail } from 'react-icons/fi'
+import { profile, resumeUrl } from '../data/resume'
 import SplitText from './ui/SplitText'
 import RotatingText from './ui/RotatingText'
 import MagneticButton from './ui/MagneticButton'
@@ -55,6 +55,13 @@ export default function Hero() {
             className="inline-flex items-center gap-2 rounded-full border border-line px-6 py-3 font-display text-sm font-medium text-fog hover:border-violet hover:text-violet"
           >
             View experience
+          </MagneticButton>
+          <MagneticButton
+            href={resumeUrl}
+            download="Ashrar-Ahmed-Resume.pdf"
+            className="inline-flex items-center gap-2 rounded-full border border-line px-6 py-3 font-display text-sm font-medium text-mist hover:border-violet hover:text-violet"
+          >
+            <FiDownload /> Resume
           </MagneticButton>
         </motion.div>
       </div>

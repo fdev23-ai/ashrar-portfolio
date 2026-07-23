@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Link, useLocation } from 'react-router-dom'
-import { FiMenu, FiMoon, FiSun, FiX } from 'react-icons/fi'
+import { FiDownload, FiMenu, FiMoon, FiSun, FiX } from 'react-icons/fi'
 import { useTheme } from '../hooks/useTheme'
+import { resumeUrl } from '../data/resume'
 
 const links = [
   { href: '#about', label: 'About' },
@@ -88,6 +89,15 @@ export default function Navbar() {
         </ul>
 
         <div className="flex items-center gap-3">
+          <a
+            href={resumeUrl}
+            download="Ashrar-Ahmed-Resume.pdf"
+            aria-label="Download resume"
+            className="hidden h-9 w-9 items-center justify-center rounded-full border border-line text-mist transition-colors hover:border-violet hover:text-violet sm:flex"
+          >
+            <FiDownload size={16} />
+          </a>
+
           <button
             type="button"
             onClick={toggleTheme}
@@ -159,6 +169,15 @@ export default function Navbar() {
                 </Link>
               </li>
             ))}
+            <li className="border-b border-line/60 sm:hidden">
+              <a
+                href={resumeUrl}
+                download="Ashrar-Ahmed-Resume.pdf"
+                className="container-px mx-auto flex items-center gap-2 py-4 text-base text-fog"
+              >
+                <FiDownload size={16} /> Resume
+              </a>
+            </li>
           </motion.ul>
         )}
       </AnimatePresence>

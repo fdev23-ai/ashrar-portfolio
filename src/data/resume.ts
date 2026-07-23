@@ -11,6 +11,11 @@ export const profile = {
     'Software developer with a Flutter-first background and growing React expertise, currently building a real-time surveillance and monitoring platform for Web and iOS. Comfortable across the stack — from live video streaming and PTZ camera control to translating Figma designs into pixel-accurate, responsive UI. Shipped apps to both the App Store and Play Store, and enjoys solving problems where real-time data, maps, and performance intersect.',
 }
 
+// A plain "/Ashrar-Ahmed-Resume.pdf" href would resolve from the domain
+// root and miss Vite's configured base path (e.g. "/ashrar-portfolio/")
+// on the deployed site — BASE_URL keeps it correct wherever it's hosted.
+export const resumeUrl = `${import.meta.env.BASE_URL}Ashrar-Ahmed-Resume.pdf`
+
 export type Experience = {
   role: string
   company: string
