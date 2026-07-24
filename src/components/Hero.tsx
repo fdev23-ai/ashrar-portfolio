@@ -5,6 +5,7 @@ import SplitText from './ui/SplitText'
 import RotatingText from './ui/RotatingText'
 import MagneticButton from './ui/MagneticButton'
 import GradientBlobs from './ui/GradientBlobs'
+import TiltCard from './ui/TiltCard'
 import portrait from '../assets/ashrar-portrait.jpg'
 
 const rotatingRoles = ['Flutter', 'React']
@@ -77,7 +78,7 @@ export default function Hero() {
             className="relative hidden lg:block"
           >
             <div className="absolute -inset-6 -z-10 rounded-[2rem] bg-violet/20 blur-3xl" />
-            <div className="overflow-hidden rounded-[1.75rem] border border-line">
+            <TiltCard>
               <img
                 src={portrait}
                 alt={profile.name}
@@ -85,7 +86,7 @@ export default function Hero() {
                 width={900}
                 height={957}
               />
-            </div>
+            </TiltCard>
           </motion.div>
         </div>
       </div>
