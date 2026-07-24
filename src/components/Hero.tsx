@@ -76,16 +76,21 @@ export default function Hero() {
             transition={{ delay: 0.3, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="relative hidden lg:block"
           >
-            <div className="absolute -inset-6 -z-10 rounded-[2rem] bg-violet/20 blur-3xl" />
-            <div className="overflow-hidden rounded-[1.75rem] border border-line">
-              <img
-                src={portrait}
-                alt={profile.name}
-                className="aspect-[3/4] w-full object-cover"
-                width={900}
-                height={957}
-              />
-            </div>
+            <div className="absolute -inset-16 -z-10 rounded-full bg-gradient-to-br from-violet/35 via-cyan/15 to-pink/25 blur-[80px]" />
+            {/* No border/hard clip — a radial mask fades the photo into the
+                glow behind it instead, so it reads as part of the background
+                rather than a card sitting on top of it. */}
+            <img
+              src={portrait}
+              alt={profile.name}
+              className="aspect-[3/4] w-full object-cover"
+              style={{
+                maskImage: 'radial-gradient(ellipse 62% 68% at 50% 34%, black 38%, transparent 88%)',
+                WebkitMaskImage: 'radial-gradient(ellipse 62% 68% at 50% 34%, black 38%, transparent 88%)',
+              }}
+              width={900}
+              height={957}
+            />
           </motion.div>
         </div>
       </div>
