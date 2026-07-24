@@ -17,6 +17,19 @@ const rotatingRoles = [
   'Full-Stack (almost)',
 ]
 
+// One color per role above, each its own read — Flutter/React lean into the
+// site's existing violet/cyan accents, Bug Squasher gets a warm red/orange
+// (the one non-palette color, since "bug" wants urgency not elegance), and
+// Full-Stack closes the loop with all three.
+const rotatingColors = [
+  'linear-gradient(90deg, var(--color-cyan), var(--color-violet))',
+  'linear-gradient(90deg, var(--color-violet), var(--color-cyan))',
+  'linear-gradient(90deg, var(--color-pink), var(--color-violet))',
+  'linear-gradient(90deg, #f87171, #fb923c)',
+  'linear-gradient(90deg, var(--color-violet), var(--color-pink))',
+  'linear-gradient(90deg, var(--color-violet), var(--color-cyan), var(--color-pink))',
+]
+
 export default function Hero() {
   return (
     <section id="top" className="relative flex min-h-screen items-center overflow-hidden pt-16">
@@ -45,7 +58,7 @@ export default function Hero() {
                 transition={{ delay: 0.5, duration: 0.6 }}
                 className="block"
               >
-                I'm a <RotatingText texts={rotatingRoles} className="text-gradient" />.
+                I'm a <RotatingText texts={rotatingRoles} colors={rotatingColors} />.
               </motion.span>
             </h1>
 
