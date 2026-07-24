@@ -8,7 +8,14 @@ import GradientBlobs from './ui/GradientBlobs'
 import TiltCard from './ui/TiltCard'
 import portrait from '../assets/ashrar-portrait.jpg'
 
-const rotatingRoles = ['Flutter', 'React']
+const rotatingRoles = [
+  'Flutter Developer',
+  'React Engineer',
+  'Vibe Coder',
+  'Bug Squasher',
+  'AI Tinkerer',
+  'Full-Stack (almost)',
+]
 
 export default function Hero() {
   return (
@@ -38,7 +45,7 @@ export default function Hero() {
                 transition={{ delay: 0.5, duration: 0.6 }}
                 className="block"
               >
-                I build real-time <RotatingText texts={rotatingRoles} className="text-gradient" /> products.
+                I'm a <RotatingText texts={rotatingRoles} className="text-gradient" />.
               </motion.span>
             </h1>
 
