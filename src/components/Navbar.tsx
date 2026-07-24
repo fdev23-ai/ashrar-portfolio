@@ -56,11 +56,11 @@ export default function Navbar() {
       <nav className="container-px mx-auto flex h-16 max-w-6xl items-center justify-between">
         {isHome ? (
           <a href="#top" className="font-display text-lg font-semibold tracking-tight text-fog">
-            Ashrar<span className="text-gradient">.</span>
+            Ashrar Ahmed F<span className="text-gradient">.</span>
           </a>
         ) : (
           <Link to="/" className="font-display text-lg font-semibold tracking-tight text-fog">
-            Ashrar<span className="text-gradient">.</span>
+            Ashrar Ahmed F<span className="text-gradient">.</span>
           </Link>
         )}
         <ul className="hidden items-center gap-8 md:flex">

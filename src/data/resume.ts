@@ -284,8 +284,3 @@ export const certifications = [
     issuer: 'GUVi — 6-month course',
   },
 ]
-
-export const languages = [
-  { name: 'English', level: 'Advanced' },
-  { name: 'Tamil', level: 'Native' },
-]

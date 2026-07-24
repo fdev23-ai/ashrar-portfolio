@@ -70,12 +70,11 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* Desktop only — on mobile the portrait lives in the About section instead. */}
           <motion.div
             initial={{ opacity: 0, scale: 0.94 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.3, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="relative hidden lg:block"
+            className="relative mx-auto w-full max-w-xs lg:max-w-none"
           >
             <div className="absolute -inset-6 -z-10 rounded-[2rem] bg-violet/20 blur-3xl" />
             <TiltCard>
