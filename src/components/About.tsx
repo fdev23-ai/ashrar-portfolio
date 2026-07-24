@@ -16,7 +16,8 @@ export default function About() {
         </h2>
 
         <div className="mt-10 grid grid-cols-1 gap-12 md:grid-cols-3">
-          <ScrollReveal>
+          {/* Desktop already shows the portrait in the Hero — this covers mobile/tablet only. */}
+          <ScrollReveal className="lg:hidden">
             <div className="overflow-hidden rounded-2xl border border-line">
               <img
                 src={portrait}
@@ -28,7 +29,7 @@ export default function About() {
             </div>
           </ScrollReveal>
 
-          <ScrollReveal delay={0.08} className="md:col-span-2">
+          <ScrollReveal delay={0.08} className="md:col-span-2 lg:col-span-3">
             <p className="text-lg leading-relaxed text-mist">{profile.about}</p>
 
             <div className="mt-8 max-w-sm rounded-2xl border border-line bg-surface-2/60 p-6">
