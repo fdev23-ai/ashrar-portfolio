@@ -28,7 +28,11 @@ export default function RotatingText({ texts, className = '', rotationInterval =
     // measured as one string (kerning isn't applied across separate inline
     // boxes), so clipping at the word level cuts off the last character or
     // two. Each character gets its own tightly-fitted clip box instead.
-    <span className="relative inline-block align-bottom">
+    <span className="relative inline-block whitespace-nowrap align-bottom">
+      {/* whitespace-nowrap matters here: this is normal text (so it can wrap
+          on narrow screens) while the visible characters below are absolutely
+          positioned (so they never wrap) — without it, a mismatch between the
+          two on narrow viewports clips or misaligns the animated glyphs. */}
       <span className="invisible" aria-hidden>
         {texts.reduce((longest, t) => (t.length > longest.length ? t : longest), '')}
       </span>
