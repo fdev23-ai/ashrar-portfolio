@@ -62,7 +62,7 @@ export default function Skills() {
               <p className="font-display text-xs uppercase tracking-[0.2em] text-mist">
                 {active + 1} / {skillWheel.length} &middot; scroll, drag, or click a skill
               </p>
-              <AnimatePresence mode="wait">
+              <AnimatePresence>
                 <motion.div
                   key={activeSkill.name}
                   initial={{ opacity: 0, y: 10 }}

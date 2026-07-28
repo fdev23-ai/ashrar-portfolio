@@ -14,12 +14,12 @@ export default function Contact() {
           <span className="font-display text-sm uppercase tracking-[0.2em] text-cyan">Contact</span>
         </ScrollReveal>
 
-        <h2 className="mx-auto mt-4 max-w-2xl text-[clamp(2rem,5vw,3.5rem)] font-semibold text-fog">
+        <h2 className="mx-auto mt-4 max-w-2xl text-center text-[clamp(2rem,5vw,3.5rem)] font-semibold text-fog">
           <SplitText text="Let's build something real-time together." />
         </h2>
 
         <ScrollReveal delay={0.15}>
-          <p className="mx-auto mt-6 max-w-lg text-lg text-mist">
+          <p className="mx-auto mt-6 max-w-lg text-center text-lg text-mist">
             Have a project, a role, or an idea in mind? My inbox is open — I usually reply within a
             day.
           </p>
