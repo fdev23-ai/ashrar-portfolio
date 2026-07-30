@@ -33,30 +33,38 @@
   --color-fuchsia: #a21caf;
 }
 
-* {
-  box-sizing: border-box;
-}
+/* Tailwind's utilities live in a cascade layer; an unlayered rule beats a
+   layered one regardless of specificity or source order. These resets were
+   unlayered, so a plain `p { margin: 0 }` was silently overriding utilities
+   like `mx-auto` on every paragraph (margin-left/right lost to the reset's
+   `margin` shorthand) — wrapping them in @layer base lets utilities win as
+   intended. */
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
 
-html {
-  scroll-behavior: smooth;
-}
+  html {
+    scroll-behavior: smooth;
+  }
 
-body {
-  margin: 0;
-  background: var(--color-ink);
-  color: var(--color-fog);
-  font-family: var(--font-body);
-  overflow-x: hidden;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
+  body {
+    margin: 0;
+    background: var(--color-ink);
+    color: var(--color-fog);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
 
-h1, h2, h3, h4 {
-  font-family: var(--font-display);
-  letter-spacing: -0.02em;
-}
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
 
-p {
-  margin: 0;
+  p {
+    margin: 0;
+  }
 }
 
 ::selection {
