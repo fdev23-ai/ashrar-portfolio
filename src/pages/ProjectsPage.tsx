@@ -19,12 +19,12 @@ export default function ProjectsPage() {
           <div className="container-px relative z-10 mx-auto max-w-6xl">
             <Link
               to="/"
-              className="inline-flex items-center gap-2 rounded-full border border-line px-4 py-2 font-display text-sm text-fog transition-colors hover:border-violet hover:text-violet"
+              className="inline-flex items-center gap-2 rounded-full border border-line px-4 py-2 font-display text-sm text-fog transition-colors hover:border-amber hover:text-amber"
             >
               <FiArrowLeft /> Back home
             </Link>
 
-            <span className="mt-8 block font-display text-sm uppercase tracking-[0.2em] text-pink">
+            <span className="mt-8 block font-display text-sm uppercase tracking-[0.2em] text-fuchsia">
               All projects
             </span>
             <h1 className="mt-4 max-w-2xl text-[clamp(1.75rem,4vw,3rem)] font-semibold text-fog">
@@ -46,10 +46,10 @@ export default function ProjectsPage() {
                           <CurvedLoop
                             text={project.badgeText}
                             size={72}
-                            className="absolute -inset-[15px] text-violet/50"
+                            className="absolute -inset-[15px] text-amber/50"
                           />
                         )}
-                        <div className="relative flex h-11 w-11 items-center justify-center rounded-xl bg-violet/15 text-violet">
+                        <div className="relative flex h-11 w-11 items-center justify-center rounded-xl bg-amber/15 text-amber">
                           <Icon size={20} />
                         </div>
                       </div>
@@ -86,7 +86,7 @@ export default function ProjectsPage() {
                 return (
                   <ScrollReveal key={project.name} delay={i * 0.05}>
                     <div className="h-full rounded-2xl border border-line bg-surface-2/60 p-6">
-                      <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-cyan/15 text-cyan">
+                      <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-teal/15 text-teal">
                         <Icon size={16} />
                       </div>
                       <h3 className="mt-4 font-display text-base font-medium text-fog">{project.name}</h3>

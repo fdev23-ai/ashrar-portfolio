@@ -49,5 +49,5 @@
   display: flex;
   flex-shrink: 0;
   font-size: 0.6em;
-  color: color-mix(in srgb, var(--color-violet) calc(var(--ow-active, 0) * 100%), currentcolor);
+  color: color-mix(in srgb, var(--color-amber) calc(var(--ow-active, 0) * 100%), currentcolor);
 }

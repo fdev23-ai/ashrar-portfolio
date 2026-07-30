@@ -8,7 +8,7 @@ export default function Experience() {
     <section id="experience" className="section-pad relative bg-surface/40">
       <div className="container-px mx-auto max-w-6xl">
         <ScrollReveal>
-          <span className="font-display text-sm uppercase tracking-[0.2em] text-cyan">Experience</span>
+          <span className="font-display text-sm uppercase tracking-[0.2em] text-teal">Experience</span>
         </ScrollReveal>
         <h2 className="mt-4 max-w-2xl text-[clamp(1.75rem,4vw,3rem)] font-semibold text-fog">
           <SplitText text="Where I've built things." />
@@ -24,13 +24,13 @@ export default function Experience() {
                   whileInView={{ scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: i * 0.08 }}
-                  className="absolute left-0 top-1.5 h-4 w-4 rounded-full border-2 border-violet bg-ink"
+                  className="absolute left-0 top-1.5 h-4 w-4 rounded-full border-2 border-amber bg-ink"
                 />
                 <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
                   <h3 className="font-display text-xl font-medium text-fog">{job.role}</h3>
                   <span className="font-display text-sm text-mist">{job.period}</span>
                 </div>
-                <p className="mt-1 text-sm text-violet">
+                <p className="mt-1 text-sm text-amber">
                   {job.company} &middot; {job.location}
                 </p>
                 <ul className="mt-4 space-y-2">

@@ -27,7 +27,7 @@ export default function Spotlight() {
           x: '-50%',
           y: '-50%',
           background:
-            'radial-gradient(circle, rgba(139,92,246,0.10) 0%, rgba(34,211,238,0.05) 40%, transparent 70%)',
+            'radial-gradient(circle, rgba(245,165,36,0.10) 0%, rgba(45,212,191,0.05) 40%, transparent 70%)',
         }}
       />
     </motion.div>

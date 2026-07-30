@@ -17,7 +17,7 @@ export default function Projects() {
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
             <ScrollReveal>
-              <span className="font-display text-sm uppercase tracking-[0.2em] text-pink">Projects</span>
+              <span className="font-display text-sm uppercase tracking-[0.2em] text-fuchsia">Projects</span>
             </ScrollReveal>
             <h2 className="mt-4 max-w-2xl text-[clamp(1.75rem,4vw,3rem)] font-semibold text-fog">
               <SplitText text="Things I've built." />
@@ -26,7 +26,7 @@ export default function Projects() {
           <ScrollReveal delay={0.1}>
             <MagneticButton
               href="/projects"
-              className="inline-flex items-center gap-2 rounded-full border border-line px-5 py-2.5 font-display text-sm text-fog hover:border-violet hover:text-violet"
+              className="inline-flex items-center gap-2 rounded-full border border-line px-5 py-2.5 font-display text-sm text-fog hover:border-amber hover:text-amber"
             >
               View all projects <FiArrowRight />
             </MagneticButton>
@@ -44,10 +44,10 @@ export default function Projects() {
                       <CurvedLoop
                         text={project.badgeText}
                         size={72}
-                        className="absolute -inset-[15px] text-violet/50"
+                        className="absolute -inset-[15px] text-amber/50"
                       />
                     )}
-                    <div className="relative flex h-11 w-11 items-center justify-center rounded-xl bg-violet/15 text-violet">
+                    <div className="relative flex h-11 w-11 items-center justify-center rounded-xl bg-amber/15 text-amber">
                       <Icon size={20} />
                     </div>
                   </div>
@@ -78,7 +78,7 @@ export default function Projects() {
         </div>
 
         <ScrollReveal delay={0.2} className="mt-8 text-center">
-          <Link to="/projects" className="font-display text-sm text-mist underline-offset-4 hover:text-violet hover:underline">
+          <Link to="/projects" className="font-display text-sm text-mist underline-offset-4 hover:text-amber hover:underline">
             + {projects.length - featured.length} more, including AI/ML practice projects
           </Link>
         </ScrollReveal>

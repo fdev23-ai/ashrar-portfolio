@@ -35,7 +35,7 @@ export default function Skills() {
     <section id="skills" className="section-pad relative bg-surface/40">
       <div className="container-px mx-auto max-w-6xl">
         <ScrollReveal>
-          <span className="font-display text-sm uppercase tracking-[0.2em] text-cyan">Skills</span>
+          <span className="font-display text-sm uppercase tracking-[0.2em] text-teal">Skills</span>
         </ScrollReveal>
         <h2 className="mt-4 max-w-2xl text-[clamp(1.75rem,4vw,3rem)] font-semibold text-fog">
           <SplitText text="Tools I reach for." />

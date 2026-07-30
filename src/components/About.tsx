@@ -7,7 +7,7 @@ export default function About() {
     <section id="about" className="section-pad relative">
       <div className="container-px mx-auto max-w-6xl">
         <ScrollReveal>
-          <span className="font-display text-sm uppercase tracking-[0.2em] text-violet">About</span>
+          <span className="font-display text-sm uppercase tracking-[0.2em] text-amber">About</span>
         </ScrollReveal>
 
         <h2 className="mt-4 max-w-3xl text-[clamp(1.75rem,4vw,3rem)] font-semibold text-fog">

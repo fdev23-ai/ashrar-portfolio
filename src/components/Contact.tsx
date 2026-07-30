@@ -11,7 +11,7 @@ export default function Contact() {
       <GradientBlobs />
       <div className="container-px relative z-10 mx-auto max-w-4xl text-center">
         <ScrollReveal>
-          <span className="font-display text-sm uppercase tracking-[0.2em] text-cyan">Contact</span>
+          <span className="font-display text-sm uppercase tracking-[0.2em] text-teal">Contact</span>
         </ScrollReveal>
 
         <h2 className="mx-auto mt-4 max-w-2xl text-[clamp(2rem,5vw,3.5rem)] font-semibold text-fog">
@@ -35,7 +35,7 @@ export default function Contact() {
             </MagneticButton>
             <MagneticButton
               href={`tel:${profile.phone.replace(/\s/g, '')}`}
-              className="inline-flex items-center gap-2 rounded-full border border-line px-6 py-3 font-display text-sm font-medium text-fog hover:border-violet hover:text-violet"
+              className="inline-flex items-center gap-2 rounded-full border border-line px-6 py-3 font-display text-sm font-medium text-fog hover:border-amber hover:text-amber"
             >
               <FiPhone /> {profile.phone}
             </MagneticButton>
@@ -49,7 +49,7 @@ export default function Contact() {
               target="_blank"
               rel="noreferrer"
               aria-label="LinkedIn"
-              className="text-mist transition-colors hover:text-violet"
+              className="text-mist transition-colors hover:text-amber"
             >
               <FiLinkedin size={22} />
             </a>
@@ -58,7 +58,7 @@ export default function Contact() {
               target="_blank"
               rel="noreferrer"
               aria-label="GitHub"
-              className="text-mist transition-colors hover:text-violet"
+              className="text-mist transition-colors hover:text-amber"
             >
               <FiGithub size={22} />
             </a>

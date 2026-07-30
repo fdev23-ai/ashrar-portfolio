@@ -18,16 +18,17 @@ const rotatingRoles = [
 ]
 
 // One color per role above, each its own read — Flutter/React lean into the
-// site's existing violet/cyan accents, Bug Squasher gets a warm red/orange
-// (the one non-palette color, since "bug" wants urgency not elegance), and
-// Full-Stack closes the loop with all three.
+// site's amber/teal accents, Bug Squasher gets a true red (the one
+// non-palette color, since amber already reads gold/orange — "bug" wants
+// something that clearly doesn't match anything else), and Full-Stack
+// closes the loop with all three.
 const rotatingColors = [
-  'linear-gradient(90deg, var(--color-cyan), var(--color-violet))',
-  'linear-gradient(90deg, var(--color-violet), var(--color-cyan))',
-  'linear-gradient(90deg, var(--color-pink), var(--color-violet))',
-  'linear-gradient(90deg, #f87171, #fb923c)',
-  'linear-gradient(90deg, var(--color-violet), var(--color-pink))',
-  'linear-gradient(90deg, var(--color-violet), var(--color-cyan), var(--color-pink))',
+  'linear-gradient(90deg, var(--color-teal), var(--color-amber))',
+  'linear-gradient(90deg, var(--color-amber), var(--color-teal))',
+  'linear-gradient(90deg, var(--color-fuchsia), var(--color-amber))',
+  'linear-gradient(90deg, #dc2626, #e11d48)',
+  'linear-gradient(90deg, var(--color-amber), var(--color-fuchsia))',
+  'linear-gradient(90deg, var(--color-amber), var(--color-teal), var(--color-fuchsia))',
 ]
 
 export default function Hero() {
@@ -44,8 +45,8 @@ export default function Hero() {
               className="mb-6 inline-flex items-center gap-2 rounded-full border border-line bg-surface-2/60 px-4 py-1.5 font-display text-sm text-mist"
             >
               <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan opacity-75" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-cyan" />
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-teal opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-teal" />
               </span>
               Open to new opportunities · {profile.location}
             </motion.p>
@@ -76,14 +77,14 @@ export default function Hero() {
               </MagneticButton>
               <MagneticButton
                 href="#experience"
-                className="inline-flex items-center gap-2 rounded-full border border-line px-6 py-3 font-display text-sm font-medium text-fog hover:border-violet hover:text-violet"
+                className="inline-flex items-center gap-2 rounded-full border border-line px-6 py-3 font-display text-sm font-medium text-fog hover:border-amber hover:text-amber"
               >
                 View experience
               </MagneticButton>
               <MagneticButton
                 href={resumeUrl}
                 download="Ashrar-Ahmed-Resume.pdf"
-                className="inline-flex items-center gap-2 rounded-full border border-line px-6 py-3 font-display text-sm font-medium text-mist hover:border-violet hover:text-violet"
+                className="inline-flex items-center gap-2 rounded-full border border-line px-6 py-3 font-display text-sm font-medium text-mist hover:border-amber hover:text-amber"
               >
                 <FiDownload /> Resume
               </MagneticButton>
@@ -96,7 +97,7 @@ export default function Hero() {
             transition={{ delay: 0.3, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="relative mx-auto w-full max-w-xs lg:max-w-none"
           >
-            <div className="absolute -inset-6 -z-10 rounded-[2rem] bg-violet/20 blur-3xl" />
+            <div className="absolute -inset-6 -z-10 rounded-[2rem] bg-amber/20 blur-3xl" />
             <TiltCard>
               <img
                 src={portrait}

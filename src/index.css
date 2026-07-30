@@ -12,9 +12,9 @@
   --color-mist: #9aa0b2;
   --color-fog: #cfd2dd;
 
-  --color-violet: #8b5cf6;
-  --color-cyan: #22d3ee;
-  --color-pink: #f472b6;
+  --color-amber: #f5a524;
+  --color-teal: #2dd4bf;
+  --color-fuchsia: #e879f9;
 }
 
 /* Light theme overrides the same tokens the dark palette above defines, so
@@ -28,9 +28,9 @@
   --color-mist: #63656f;
   --color-fog: #14151a;
 
-  --color-violet: #7c3aed;
-  --color-cyan: #0891b2;
-  --color-pink: #db2777;
+  --color-amber: #b45309;
+  --color-teal: #0f766e;
+  --color-fuchsia: #a21caf;
 }
 
 * {
@@ -60,7 +60,7 @@ p {
 }
 
 ::selection {
-  background: var(--color-violet);
+  background: var(--color-amber);
   color: white;
 }
 
@@ -75,11 +75,11 @@ p {
   border-radius: 999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-violet);
+  background: var(--color-amber);
 }
 
 .text-gradient {
-  background: linear-gradient(90deg, #8b5cf6, #22d3ee 55%, #f472b6);
+  background: linear-gradient(90deg, var(--color-amber), var(--color-teal) 55%, var(--color-fuchsia));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;

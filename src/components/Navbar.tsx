@@ -93,7 +93,7 @@ export default function Navbar() {
             href={resumeUrl}
             download="Ashrar-Ahmed-Resume.pdf"
             aria-label="Download resume"
-            className="hidden h-9 w-9 items-center justify-center rounded-full border border-line text-mist transition-colors hover:border-violet hover:text-violet sm:flex"
+            className="hidden h-9 w-9 items-center justify-center rounded-full border border-line text-mist transition-colors hover:border-amber hover:text-amber sm:flex"
           >
             <FiDownload size={16} />
           </a>
@@ -102,7 +102,7 @@ export default function Navbar() {
             type="button"
             onClick={toggleTheme}
             aria-label={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-line text-mist transition-colors hover:border-violet hover:text-violet"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-line text-mist transition-colors hover:border-amber hover:text-amber"
           >
             {theme === 'dark' ? <FiSun size={16} /> : <FiMoon size={16} />}
           </button>
@@ -110,14 +110,14 @@ export default function Navbar() {
           {isHome ? (
             <a
               href="#contact"
-              className="hidden rounded-full border border-line px-4 py-2 text-sm text-fog transition-colors hover:border-violet hover:text-violet md:inline-block"
+              className="hidden rounded-full border border-line px-4 py-2 text-sm text-fog transition-colors hover:border-amber hover:text-amber md:inline-block"
             >
               Let&rsquo;s talk
             </a>
           ) : (
             <Link
               to="/#contact"
-              className="hidden rounded-full border border-line px-4 py-2 text-sm text-fog transition-colors hover:border-violet hover:text-violet md:inline-block"
+              className="hidden rounded-full border border-line px-4 py-2 text-sm text-fog transition-colors hover:border-amber hover:text-amber md:inline-block"
             >
               Let&rsquo;s talk
             </Link>
